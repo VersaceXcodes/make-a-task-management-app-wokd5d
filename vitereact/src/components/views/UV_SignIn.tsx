@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
-import { use_app_store } from "@/store/main";
+import { useAppStore } from "@/store/main";
 
 interface LoginRequest {
   email: string;
@@ -29,10 +29,10 @@ const UV_SignIn: React.FC = () => {
   const navigate = useNavigate();
 
   // Global setters from Zustand store
-  const set_auth = use_app_store((state) => state.set_auth);
-  const set_user_profile = use_app_store((state) => state.set_user_profile);
-  const set_user_setting = use_app_store((state) => state.set_user_setting);
-  const setup_socket = use_app_store((state) => state.setup_socket);
+  const set_auth = useAppStore((state) => state.set_auth);
+  const set_user_profile = useAppStore((state) => state.set_user_profile);
+  const set_user_setting = useAppStore((state) => state.set_user_setting);
+  const setup_socket = useAppStore((state) => state.setup_socket);
 
   // Local UI state variables
   const [email, set_email] = useState<string>("");
