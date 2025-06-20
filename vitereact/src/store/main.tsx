@@ -176,7 +176,7 @@ const SOCKET_URL = import.meta.env.VITE_API_BASE_URL
   ? import.meta.env.VITE_API_BASE_URL.replace(/^http/, 'ws')
   : 'ws://localhost:3000';
 
-export const use_app_store = create<AppState>()(
+export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
       // Initial state values for each slice
