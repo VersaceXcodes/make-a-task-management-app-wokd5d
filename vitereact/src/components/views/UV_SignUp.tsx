@@ -2,7 +2,7 @@ import React, { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { use_app_store } from "@/store/main";
+import { useAppStore } from "@/store/main";
 
 interface SignupRequest {
   email: string;
@@ -41,9 +41,9 @@ const UV_SignUp: React.FC = () => {
   const navigate = useNavigate();
 
   // Access the global auth state setter
-  const set_auth = use_app_store((state) => state.set_auth);
-  const set_user_profile = use_app_store((state) => state.set_user_profile);
-  const set_user_setting = use_app_store((state) => state.set_user_setting);
+  const set_auth = useAppStore((state) => state.set_auth);
+  const set_user_profile = useAppStore((state) => state.set_user_profile);
+  const set_user_setting = useAppStore((state) => state.set_user_setting);
 
   // Form fields state
   const [email, set_email] = useState<string>("");
